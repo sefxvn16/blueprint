@@ -1,0 +1,15 @@
+[
+  {
+    "id": "shell-title",
+    "title": "Title / Main menu",
+    "area": "shell-ui.md",
+    "phase": "vertical-slice",
+    "mandatory": true,
+    "acceptance": [
+      "Mở game thấy tên game, một hành động chính, số phiên bản",
+      "Chưa có save thì không hiện Continue; có save thì Continue đứng đầu và ghi rõ tiếp tục từ đâu"
+    ],
+    "status": "todo",
+    "evidence": ""
+  }
+]
