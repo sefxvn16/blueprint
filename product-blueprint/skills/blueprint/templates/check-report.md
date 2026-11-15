@@ -7,8 +7,8 @@ Giai đoạn hiện tại: <...> · Giai đoạn tiếp theo: <...> · Cổng: <
 |---|---|---|---|
 
 ## Present
-| id | Bằng chứng (file:dòng) | Đạt acceptance? |
-|---|---|---|
+| id | Bằng chứng (file:dòng) | Không hiện khi (điều kiện render) | Đã chạy app? | Đạt acceptance? |
+|---|---|---|---|---|
 
 ## Unclear
 | Mục | Cần gì để kết luận |

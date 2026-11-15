@@ -12,7 +12,7 @@ Blueprint fixes the *what* and *when done*, not the code. It writes a small desi
 
 ## What it covers
 
-- **Games, including browser games.** First-launch setup, title / main menu, one shared Settings screen (reachable from the menu and from Pause), Pause, HUD without settings on it, New / Continue / Load, autosave kept apart from manual saves, tutorial, game over, results, credits. Browser-specific rules cover the audio unlock on the first click, auto-pause on tab switch, localStorage limits and Safari eviction, save export, and iframe embedding.
+- **Games, including browser games.** First-launch setup, title / main menu, one shared Settings screen (reachable from the menu and from Pause), Pause, HUD without settings on it, New / Continue / Load, autosave kept apart from manual saves, tutorial, game over, results, credits, a welcome screen to choose guest play or sign-in, guest-to-account upgrade, and multiplayer rooms (create, join, approve, kick, transfer host, lobby, reconnect, results). Browser-specific rules cover the audio unlock on the first click, auto-pause on tab switch, localStorage limits and Safari eviction, save export, and iframe embedding.
 - **Web apps.** Screens per role: public pages, 404/500, sign-up, sign-in, password reset (OWASP), profile, account settings, data export, account deletion (Apple 5.1.1(v)), admin with an audit log, and empty / loading / error states on every screen.
 - **Phases and gates.**
   - Games: concept → prototype → vertical slice → alpha → beta → release.
@@ -74,8 +74,8 @@ The skill's instructions and the documents it writes are in **Vietnamese**. File
 ## Known limits
 
 - The file-size thresholds for design documents (80 / 400 lines, 25 KB) are estimates.
-- Online multiplayer is only classified by level; there is no screen list yet for lobbies, matchmaking or friends.
-- The `new` mode has been tested in a real session; `check` and `idea` have not yet.
+- Multiplayer has a room checklist (create, join, approve, kick, transfer host, lobby, leave, reconnect, results, leaderboard, reports); matchmaking with strangers and friend lists are not covered yet.
+- The `new` mode has been tested in a real session. `check` was used on a real project (0.2.0 fixes: read render conditions, check that saved settings are applied, run the app, compare with the project's own design docs); `idea` has not been tested yet.
 - A few browser-game rules are common practice rather than official guidance; they are marked as such in `game.md`.
 
 ## About

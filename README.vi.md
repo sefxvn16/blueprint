@@ -34,5 +34,5 @@ MIT: dùng miễn phí cho mọi mục đích, kể cả thương mại; chỉ c
 
 ## Giới hạn đã biết
 - Ngưỡng chia file (80 / 400 dòng, 25 KB) là ước tính.
-- Game nhiều người chơi trực tuyến mới chỉ được phân mức; chưa có danh mục màn hình riêng cho phòng chờ, ghép trận, bạn bè.
-- Đã chạy thử thật chế độ new; chế độ check và idea chưa chạy thử.
+- Game nhiều người chơi có danh mục phòng (tạo, vào, duyệt, kick, chuyển chủ phòng, sảnh chờ, rời, kết nối lại, kết quả, bảng xếp hạng, báo cáo); chưa có ghép trận với người lạ và danh sách bạn bè.
+- Đã chạy thử thật chế độ new và check. Bản 0.2.0 sửa chế độ check: đọc điều kiện hiển thị, kiểm cài đặt có được áp dụng, chạy app, đối chiếu thiết kế của dự án. Chế độ idea chưa chạy thử.

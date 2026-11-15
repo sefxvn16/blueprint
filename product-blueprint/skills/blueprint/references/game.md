@@ -66,6 +66,23 @@ Prototype được phép thiếu menu và settings. Code prototype có thể b�
 | `shell-mute` | Tắt tiếng nhanh | có âm thanh |
 | `web-tab-pause` | Tự pause khi chuyển tab / thu nhỏ | trình duyệt + chơi thời gian thực (xem §6) |
 | `web-save-export` | Xuất / nhập file save | trình duyệt + chỉ lưu trên máy (`phase: alpha`, xem §6) |
+| `shell-entry-choice` | Màn chào mừng: giới thiệu ngắn + chọn **chơi khách** hay **đăng nhập / đăng ký** | có tài khoản (kể cả khi cho chơi khách) |
+| `guest-upgrade` | Khách lưu tiến độ bằng cách tạo tài khoản; nút luôn thấy trong game | có chơi khách và có tài khoản |
+
+**Nhiều người chơi** (mức session trở lên, §1). Các mục dưới đây bắt buộc khi game có phòng/trận; mục đánh dấu `(async)` bắt buộc từ mức async.
+
+| id | Màn / luồng | Bắt buộc khi |
+|---|---|---|
+| `mp-room-create` | Tạo phòng: đặt tên, luật/thời lượng/điều kiện thắng, số người tối đa, riêng tư hay công khai; nhận mã/link mời | có phòng |
+| `mp-room-join` | Vào phòng bằng mã hoặc link; báo rõ lý do bị từ chối (đầy, đã bắt đầu, sai mã, cần duyệt, chưa đăng nhập) | có phòng |
+| `mp-room-members` | Chủ phòng quản lý thành viên: duyệt/từ chối yêu cầu vào, kick (có xác nhận), chặn vào lại, chuyển quyền chủ phòng; thành viên thấy danh sách và trạng thái (sẵn sàng, đang chơi, mất kết nối) | có phòng do người chơi tạo |
+| `mp-room-lobby` | Sảnh chờ: sẵn sàng/bỏ sẵn sàng, chủ phòng bắt đầu, đổi cài đặt trước khi bắt đầu, đếm ngược | có phòng |
+| `mp-room-leave` | Rời phòng có xác nhận; chủ phòng rời thì chuyển quyền hoặc đóng phòng; đóng phòng báo cho mọi người | có phòng |
+| `mp-reconnect` | Mất kết nối / đóng tab rồi quay lại vào đúng phòng và trạng thái; quy tắc AFK ghi rõ | có phòng |
+| `mp-room-results` | Kết thúc phòng: kết quả từng người/nhóm, chơi lại (rematch), quay về danh sách phòng | có phòng có kết thúc |
+| `mp-room-list` | Phòng của tôi: đang chơi, đã kết thúc, lịch sử | có phòng |
+| `mp-leaderboard` | Bảng xếp hạng `(async)`: do server tính, chống gian lận, quy tắc hiển thị tên | có bảng xếp hạng |
+| `mp-report` | Báo cáo người chơi / tên phòng xấu, kiểm duyệt `(async)` | người chơi thấy tên hoặc nội dung của nhau |
 
 ## 4. Quy tắc từng màn
 
@@ -84,6 +101,12 @@ Prototype được phép thiếu menu và settings. Code prototype có thể b�
 - **Tutorial:** dạy bằng cách cho làm thử; xem lại được bất cứ lúc nào mà không mất tiến độ. Một màn hình tĩnh liệt kê phím không được tính là tutorial.
 - **Game over / Results:** có Retry, Continue (nếu có save) và Quit to Title. Results cho thấy người chơi đã đạt được gì.
 - **Luồng màn hình:** một state machine có bảng chuyển trạng thái viết rõ trong `shell-ui.md` (trạng thái · sự kiện · sang trạng thái nào), ví dụ `title --New Game--> play --Esc--> pause --Settings--> settings --Back--> pause`. Mọi màn mới phải có dòng trong bảng (CCGS `rules/gameplay-code.md`: state machine có bảng chuyển trạng thái tường minh).
+- **Đăng nhập / chơi khách:**
+  - màn chào mừng hiện ở lần mở đầu và khi chưa có lượt chơi; người đã có lượt khách vẫn thấy lối đăng nhập/đăng ký (ở menu và trong game);
+  - nút đăng nhập/đăng ký không bao giờ bị ẩn im lặng: dịch vụ đăng nhập chưa cấu hình thì hiện thông báo lý do, không `return null`;
+  - đăng ký và đăng nhập có tên gọi rõ; nếu một luồng (mã email) kiêm cả hai thì ghi rõ trên nút;
+  - khách tạo tài khoản thì giữ tiến độ; xung đột với tiến độ tài khoản sẵn có thì hỏi, không xóa âm thầm.
+- **Phòng chơi:** mọi thao tác của chủ phòng (duyệt, kick, chặn, chuyển quyền, bắt đầu, đóng) kiểm quyền ở server; chuyển ngày/lượt và ghi kết quả phải idempotent khi nhiều người gửi cùng lúc; smoke test chạy với ít nhất 2 trình duyệt (chủ phòng + thành viên): tạo → vào → duyệt → bắt đầu → chơi 1 lượt → kick/rời → kết quả.
 - **Điều hướng:** Back/Esc ở màn con thì về màn cha; Esc trong lúc chơi mở Pause, không thoát game. Dùng được hoàn toàn bằng bàn phím (và tay cầm nếu hỗ trợ).
 
 ## 5. Quyết định về save (ghi vào `architecture.md` › Nơi lưu dữ liệu trước khi viết code save)
