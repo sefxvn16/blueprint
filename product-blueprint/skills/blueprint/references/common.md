@@ -107,6 +107,9 @@ Mảng các đối tượng:
 - `phase`: game dùng `concept | prototype | vertical-slice | alpha | beta | release`; web/app dùng `discovery | alpha | beta | live`. Một sản phẩm chỉ dùng một bộ, ghi ở README › Giai đoạn hiện tại. Game có tài khoản dùng bộ của game; các mục lấy từ `webapp.md` §3 đổi phase: `beta` → `alpha`, `live` → `release`.
 - `status`: `todo | doing | pass | dropped`.
 - **`pass` chỉ khi có bằng chứng** trong `evidence`: lệnh test và kết quả, đường dẫn ảnh chụp, hoặc "người dùng đã chơi/dùng thử và xác nhận ngày …". Thay đổi giao diện phải có ảnh chụp hoặc người dùng xác nhận đã nhìn thấy.
+- **Bằng chứng có thể cũ hơn code.** Lúc chụp ảnh, ghi kèm mã băm của các file đã đổi. Lần rà sau, so lại: file đã đổi, đã mất, hoặc không có mã băm thì ảnh có thể lỗi thời — ghi điều đó vào báo cáo, không im lặng dùng lại ảnh cũ (CCGS `dev-story`, `test-evidence-review`).
+- **Không điền hộ.** Kết quả mà chỉ người dùng mới biết (đã chơi thử, thấy màn nào, cảm giác thế nào) thì để trống chờ họ trả lời, không suy ra từ code. Người dùng nói "có" cho một mục giao diện mà không còn ảnh trên đĩa thì đó là lời khẳng định, không phải bằng chứng.
+- **Thứ tự chấm:** lỗi đã biết xét trước (còn Blocker/Critical thì không mục nào `pass`), rồi mới xét bằng chứng từng mục. Mục chưa kiểm được xếp **trên** `pass` và **dưới** lỗi: không có đầu vào thì kết quả là "chưa rõ", không bao giờ mặc định thành đạt (CCGS `team-qa`, `perf-profile`).
 - Không xóa mục. Bỏ thì đặt `dropped` và ghi lý do vào `evidence`. Bỏ một mục `mandatory: true` cần người dùng đồng ý và phải ghi vào mục Không làm của README.
 - Acceptance viết theo dạng "xong khi…", đo được.
 
@@ -131,7 +134,7 @@ Mảng các đối tượng:
   - game: mở → menu → New Game → vào màn → chơi 10 giây → save → load → so trạng thái;
   - web: mở trang chủ → đăng nhập → thao tác chính → đăng xuất.
 - **Thang bug:** Blocker (không mở được hoặc không vào được luồng chính) · Critical (hỏng save, thanh toán, cơ chế chính) · Major (hỏng nhưng có cách vượt) · Minor · Trivial. Mức nghiêm trọng (severity) tách riêng với độ gấp (priority).
-- **Thử với người thật:** khoảng 5 người, quan sát và không nhắc, hỏi sau khi xong.
+- **Thử với người thật:** khoảng 5 người, quan sát và không nhắc, hỏi sau khi xong. Chỉ hỏi "cái gì gây bối rối?"; từ 3 người trở lên cùng vướng một chỗ thì luật chỗ đó hỏng, không phải người chơi dở. Giao thức đầy đủ, và cách tự chơi thử khi làm một mình: skill `game-feel`, `references/playtest.md` §6–§7.
 - **Accessibility:** chốt tier trước khi viết code thật; chưa chốt là không đạt, "Basic" cũng được tính là đã chốt. Game:
   - Basic: chữ đọc được, không dùng màu làm dấu hiệu duy nhất, âm lượng riêng từng loại;
   - Standard: Basic + đổi phím, cỡ chữ, phụ đề, chế độ mù màu, thời gian chỉnh được.

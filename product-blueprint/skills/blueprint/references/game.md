@@ -32,6 +32,8 @@
 | Ngôn ngữ giao diện | tiếng Việt | Settings › Ngôn ngữ |
 | Tier accessibility | Basic | Settings › Accessibility |
 
+Câu "cảm giác muốn có" và mục Keep chỉ là chữ cho tới khi quy thành số. Chốt README xong thì chuyển phần cảm giác sang skill `game-feel`: chốt một động từ cốt lõi, rồi đặt giá trị đích đo được (độ cao nhảy, cửa sổ tha lỗi, thời gian dừng khi va chạm, ngân sách ms) trước khi viết gameplay. Skill này không đặt những số đó.
+
 ## 2. Giai đoạn và cổng
 
 | Giai đoạn | Tài liệu phải có | Xong khi (đo được) |
@@ -40,7 +42,7 @@
 | prototype | như trên + `features.json` | core loop chơi được (có thể chỉ dùng hình khối); người dùng chơi và chọn **Tiếp / Đổi hướng / Bỏ**. Đổi hướng 3 lần trên cùng một ý tưởng thì phải hỏi thẳng có nên bỏ không |
 | vertical-slice | đủ file lĩnh vực, `architecture.md` có Folder map đã duyệt và cây đã được tạo (`common.md` §3b), tier accessibility đã chốt | mọi feature `mandatory` của giai đoạn này là `pass`, gồm đủ các màn bắt buộc ở §3 + 1 màn chơi hoàn chỉnh + save/load chạy được; người mới chơi hiểu cần làm gì trong 2 phút đầu mà không cần ai giải thích |
 | alpha | `architecture.md` đã rà lại | mọi feature `pass` hoặc `dropped`; mọi màn đã làm đều có trong `screen list` của README (không có màn "chỉ có trong code") |
-| beta | danh sách cắt và polish (`common.md` §6) | chơi được từ đầu đến cuối; ≥3 buổi chơi thử có ghi chép (người mới, giữa game, độ khó); không còn bug Blocker/Critical; không có chỗ nào quá nửa số người chơi bị kẹt mà không biết vì sao |
+| beta | danh sách cắt và polish (`common.md` §6) | chơi được từ đầu đến cuối; ≥3 buổi chơi thử có ghi chép (người mới, giữa game, độ khó); không còn bug Blocker/Critical; không có chỗ nào quá nửa số người chơi bị kẹt mà không biết vì sao; đã rà cân bằng: không còn chiến lược thống trị, và đường cong độ khó đã được đối chiếu lệch giữa các hệ thống (skill `game-feel`, `references/balance.md` §3–§4) |
 | release | | checklist §8 đạt |
 
 Prototype được phép thiếu menu và settings. Code prototype có thể bỏ đi; bước sang vertical slice thì viết lại theo `architecture.md`.
@@ -149,8 +151,8 @@ Prototype được phép thiếu menu và settings. Code prototype có thể b�
 | File | Chứa | Tạo khi |
 |---|---|---|
 | `shell-ui.md` | lần chạy đầu, menu, settings, pause, HUD, tutorial, accessibility, ngôn ngữ | luôn luôn |
-| `gameplay.md` | core loop, điều khiển, quy tắc, camera, độ khó | luôn luôn |
-| `progression-save.md` | cấp độ, mở khóa, tiền tệ, cửa hàng, save/load | có tiến độ hoặc kinh tế |
+| `gameplay.md` | core loop, điều khiển, quy tắc, camera, độ khó; **bảng đòn bẩy**: mỗi núm chỉnh được một dòng gồm tên · giá trị · khoảng an toàn · dưới và trên ngưỡng thì hỏng vì sao | luôn luôn |
+| `progression-save.md` | cấp độ, mở khóa, tiền tệ, cửa hàng, save/load; **bảng nguồn và bể chứa**: mỗi tài nguyên ghi chỗ sinh ra, chỗ tiêu đi và tỷ lệ giữa hai bên | có tiến độ hoặc kinh tế |
 | `world-levels.md` | bản đồ, vùng; bảng danh sách màn chơi + mỗi màn một mục | có nhiều màn hoặc bản đồ |
 | `art-audio.md` | phong cách đồ họa, bảng màu, phong cách UI, hoạt ảnh, âm thanh, nhạc | luôn luôn |
 | `combat.md` | chiến đấu, kỹ năng, kẻ địch theo vai trò | có chiến đấu |
@@ -158,6 +160,8 @@ Prototype được phép thiếu menu và settings. Code prototype có thể b�
 | `story.md` | cốt truyện, thoại, lore | có cốt truyện |
 
 Lĩnh vực nhỏ (dưới khoảng 80 dòng) thì gộp vào file gần nhất, ví dụ `combat` gộp vào `gameplay.md`.
+
+Hai bảng mới nêu trên chỉ khai **giá trị và khoảng an toàn**; giá trị nằm ở file số liệu theo `common.md` R6, còn cách đặt và cách kiểm chúng thuộc skill `game-feel`, `references/balance.md` §1 và §5.
 
 ## 8. Checklist phát hành
 
@@ -171,6 +175,7 @@ Lĩnh vực nhỏ (dưới khoảng 80 dòng) thì gộp vào file gần nhất,
 - [ ] Không còn bug Blocker/Critical; smoke test đạt trên bản phát hành
 - [ ] Số phiên bản trong menu khớp với bản phát hành
 - [ ] Phát hành trên itch.io: dung lượng bản build trong giới hạn upload; trang có ảnh bìa, ảnh chụp, mô tả, tag; tag độ tuổi và nội dung khai trung thực; đã quyết bản chơi trên trình duyệt hay bản tải về và đã thử bản đó (CCGS `certification-itch.md`)
+- [ ] Bản điện thoại (bỏ qua nếu không phát hành trên điện thoại), theo CCGS `release-checklist`, `launch-checklist`: đã thử điều khiển cảm ứng ở nhiều cỡ màn hình; xoay ngang và dọc; hành vi khi chuyển ra nền rồi quay lại, và khi hệ thống tắt app; đầy bộ nhớ lưu; mất mạng (nếu cần mạng); quyền thiết bị xin đúng lúc và có đường đi khi bị từ chối; dung lượng app trong giới hạn cửa hàng; mua trong app đã thử; ghi chú quyền riêng tư đã khai. Pin và nóng máy đo theo skill `game-feel`, `references/numbers.md` §5 — chưa đo trên máy thật thì ghi là chưa kiểm, không ghi đạt
 
 ## 9. Nguồn
 MDN *Page Visibility API* (visibilitychange, rAF và timer ở tab nền) · MDN *Autoplay guide for media and Web Audio APIs* · MDN *Storage quotas and eviction criteria* (5 MiB, QuotaExceededError, best-effort, `persist()`, Safari 7 ngày) ·

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "product-blueprint",
+  "version": "0.3.0",
+  "description": "Lập và rà bản thiết kế sản phẩm game hoặc web/app, gồm phạm vi, màn hình, luồng, giai đoạn và cổng kiểm tra.",
+  "author": {
+    "name": "namdongplus"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/sefxvn16/blueprint",
+  "repository": "https://github.com/sefxvn16/blueprint"
+}

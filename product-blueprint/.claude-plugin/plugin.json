@@ -1,12 +1,18 @@
-{
-  "name": "product-blueprint",
-  "version": "0.2.0",
-  "description": "Product blueprint for vibe-coded games and web apps: required screens, flows, settings, save, phases and gates, written to design/ before coding.",
-  "author": {
-    "name": "namdongplus"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/sefxvn16/blueprint",
-  "repository": "https://github.com/sefxvn16/blueprint",
-  "keywords": ["game-design", "web-app", "vibe-coding", "checklist", "design-docs"]
+﻿{
+    "name":  "product-blueprint",
+    "version":  "0.3.0",
+    "description":  "Product blueprint for vibe-coded games and web apps: required screens, flows, settings, save, phases and gates, written to design/ before coding.",
+    "author":  {
+                   "name":  "namdongplus"
+               },
+    "license":  "MIT",
+    "homepage":  "https://github.com/sefxvn16/blueprint",
+    "repository":  "https://github.com/sefxvn16/blueprint",
+    "keywords":  [
+                     "game-design",
+                     "web-app",
+                     "vibe-coding",
+                     "checklist",
+                     "design-docs"
+                 ]
 }

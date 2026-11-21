@@ -27,6 +27,13 @@ Giấy phép MIT, "Copyright (c) 2026 Donchitos". product-blueprint **không ch�
 | Cắt phạm vi, ngày đóng băng tính năng | `.claude/skills/cut/SKILL.md` | common.md §6 | đọc một phần |
 | Checklist itch.io | `.claude/docs/templates/certification-itch.md` | game.md §8 | đọc |
 | Tự đo: brief 1 trang tốt hơn 30 tài liệu | `README.md` | thiết kế chung | đọc (số liệu tác giả tự báo cáo) |
+| Băm file code vào bằng chứng, báo ảnh lỗi thời | `.claude/skills/dev-story/SKILL.md:240`, `test-evidence-review/SKILL.md:218-224` | common.md §4 | đọc (bản 1.2.0) |
+| Không điền hộ kết quả người thử; "có" không kèm ảnh chỉ là lời khẳng định | `.claude/skills/story-done/SKILL.md:128, 167-183`, `team-qa/SKILL.md:306-332` | common.md §4 | đọc (bản 1.2.0) |
+| Thứ tự chấm: lỗi đã biết trước; chưa kiểm xếp trên đạt | `.claude/skills/team-qa/SKILL.md:217-220`, `perf-profile/SKILL.md:21-46` | common.md §4 | đọc (bản 1.2.0) |
+| Quan sát im lặng, chỉ hỏi "cái gì gây bối rối", 3 người cùng vướng thì luật hỏng | `.claude/skills/prototype/references/3-choose-path.md:116-122` | common.md §6 | đọc (bản 1.2.0) |
+| Chiến lược thống trị; lệch đường cong độ khó giữa các hệ thống | `.claude/skills/review-all-gdds/references/3-design-holism.md:69-138` | game.md §2 | đọc (bản 1.2.0) |
+| Đòn bẩy cân bằng có khoảng an toàn; nguồn và bể chứa tài nguyên | `.claude/docs/templates/difficulty-curve.md:193-199`, `economy-model.md:31-90` | game.md §7 | đọc (bản 1.2.0; số trong nguồn là ví dụ trong template) |
+| Checklist thiết bị điện thoại | `.claude/skills/release-checklist/SKILL.md:178-191`, `launch-checklist/SKILL.md:189` | game.md §8 | đọc (bản 1.2.0) |
 
 ## 2. Tài liệu chính thức của các hãng và tổ chức
 
